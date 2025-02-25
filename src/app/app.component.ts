@@ -1,12 +1,32 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true, // Si usas standalone, agrega FormsModule en imports
+  imports: [FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'calculadora';
+  titulo = 'Aplicacion de calculadora';
+  operandoA!: number;
+  operandoB!: number;
+  resultado!: number;
+
+  onSumar(): void {
+    this.resultado = this.operandoA + this.operandoB;
+  }
+
+  onRestar(): void {
+    this.resultado = this.operandoA - this.operandoB;
+  }
+
+  onMultiplicar(): void {
+    this.resultado = this.operandoA * this.operandoB;
+  }
+
+  onDividir(): void {
+    this.resultado = this.operandoA / this.operandoB;
+  }
 }
